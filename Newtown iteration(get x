@@ -1,0 +1,14 @@
+#Newtown's method
+import math as m
+q=[0.022,0.023,0.024,0.025,0.026,0.027,0.028]
+a=int(input("How many times do you want to do:"))
+x=float(input("Input the first x-number:"))
+for c in q:
+    for i in range(a):
+        y=200*c*(m.e**(c*x))*(0.65-0.01*x)-2*m.pow(m.e,c*x)-0.45
+        k=200*c*c*m.pow(m.e,c*x)*(0.65-0.01*x)-4*c*m.pow(m.e,c*x)
+        x0=-(y/k)+x
+        #print("The NO.{} answer is {:.5f}".format(i+1,x0))
+        x=x0
+    print("The final-X is {:.5f} ,with {} times and c = {}.".format(x,a,c))
+#牛顿迭代法求解方程的根
