@@ -1,0 +1,62 @@
+#Random selection method
+import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+import random as r
+#三维图像找点
+fig=plt.figure()
+ax=Axes3D(fig)
+x=np.arange(0,6,0.1)
+y=np.arange(0,6,0.1)
+x,y=np.meshgrid(x,y)
+a=np.power((x-1)**2+(y-5)**2,(0.91/2))
+b=np.power((x-3)**2+(y-5)**2,(0.91/2))
+c=np.power((x-5)**2+(y-5)**2,(0.91/2))
+e=np.power((x-1)**2+(y-3)**2,(0.91/2))
+f=np.power((x-3)**2+(y-3)**2,(0.91/2))
+g=np.power((x-5)**2+(y-3)**2,(0.91/2))
+h=np.power((x-1)**2+(y-1)**2,(0.91/2))
+i=np.power((x-3)**2+(y-1)**2,(0.91/2))
+j=np.power((x-5)**2+(y-1)**2,(0.91/2))
+z=3.2+1.7*(6*a+8*b+8*c+21*e+6*f+3*g+18*h+8*i+6*j)/84
+ax.set_zlabel("The time of average responding zbout the site of (x,y)")
+ax.set_xlabel("The X ")
+ax.set_ylabel("The Y ")
+ax.plot_surface(x,y,z)
+plt.show()
+#随机值搜索极值位置
+N=eval(input("How many times do you want to do\n(the larger the better):"))
+x=r.uniform(0,6)
+y=r.uniform(0,6)
+a=np.power((x-1)**2+(y-5)**2,(0.91/2))
+b=np.power((x-3)**2+(y-5)**2,(0.91/2))
+c=np.power((x-5)**2+(y-5)**2,(0.91/2))
+e=np.power((x-1)**2+(y-3)**2,(0.91/2))
+f=np.power((x-3)**2+(y-3)**2,(0.91/2))
+g=np.power((x-5)**2+(y-3)**2,(0.91/2))
+h=np.power((x-1)**2+(y-1)**2,(0.91/2))
+i=np.power((x-3)**2+(y-1)**2,(0.91/2))
+j=np.power((x-5)**2+(y-1)**2,(0.91/2))
+q=3.2+1.7*(6*a+8*b+8*c+21*e+6*f+3*g+18*h+8*i+6*j)/84
+for i in range(N):
+    x=r.uniform(0,6)
+    y=r.uniform(0,6)
+    a=np.power((x-1)**2+(y-5)**2,(0.91/2))
+    b=np.power((x-3)**2+(y-5)**2,(0.91/2))
+    c=np.power((x-5)**2+(y-5)**2,(0.91/2))
+    e=np.power((x-1)**2+(y-3)**2,(0.91/2))
+    f=np.power((x-3)**2+(y-3)**2,(0.91/2))
+    g=np.power((x-5)**2+(y-3)**2,(0.91/2))
+    h=np.power((x-1)**2+(y-1)**2,(0.91/2))
+    i=np.power((x-3)**2+(y-1)**2,(0.91/2))
+    j=np.power((x-5)**2+(y-1)**2,(0.91/2))
+    z=3.2+1.7*(6*a+8*b+8*c+21*e+6*f+3*g+18*h+8*i+6*j)/84
+    if z<q:
+        m,n=x,y
+        q=z
+print("The min x y z is {:.3f},{:.3f},{:.3f}.".format(m,n,q))
+#技术水平有限，未进行优化，解决题目无问题
+#将题目6x6方格变成3x3方格进行迭代随机搜索
+#2019/5/23/19:03
+
+#即将进行优化改造
