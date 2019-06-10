@@ -1,0 +1,17 @@
+#lasting 3 days
+
+import random as r
+
+a=eval(input('How many times want to do :'))
+count=0
+for i in range(a):
+    b=[]
+    for j in range(7):
+        b.append(r.choice(['0','1']))
+    for j in range(4):
+        if b[j]=='1' and b[j+1]=='1' and b[j+2]=='1':
+            count+=1    
+print('The MIGHTY is:{:.6f}'.format(count/a))
+
+#The probability is 0.498496
+#2019/66/10 19:24
